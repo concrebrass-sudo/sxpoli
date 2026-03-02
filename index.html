@@ -14,11 +14,39 @@
         gtag('js', new Date());
         gtag('config', 'AW-17939053554');
     </script>
+    <!-- Event snippet for Visualização de página conversion page -->
+    <script>
+        function gtag_report_conversion(url) {
+            var callback = function () {
+                if (typeof(url) != 'undefined') {
+                    window.location = url;
+                }
+            };
+            gtag('event', 'conversion', {
+                'send_to': 'AW-17939053554/ukLqCOvRt_YbEPL3gOpC',
+                'value': 1.0,
+                'currency': 'BRL',
+                'event_callback': callback
+            });
+            return false;
+        }
+    </script>
     <script defer="defer" src="/static/js/main.035b1b7d.js"></script>
     <link href="/static/css/main.815cf372.css" rel="stylesheet">
 </head>
 <body>
     <noscript>Você precisa habilitar JavaScript para visualizar este site.</noscript>
     <div id="root"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.addEventListener('click', function(e) {
+                var link = e.target.closest('a[href*="wa.me"], a[href*="whatsapp"], a[href*="api.whatsapp"]');
+                if (link) {
+                    e.preventDefault();
+                    gtag_report_conversion(link.href);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
